@@ -1,0 +1,3 @@
+- Object.entries() makes it simple to use objects in loops:
+- Object.values() creates an array from the property values:
+- JSON.stringify():  JavaScript objects can be converted to a string with JSON method JSON.stringify().
