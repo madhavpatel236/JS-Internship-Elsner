@@ -4,7 +4,7 @@
 - String Operators => concatination + , comparison <, >
 - Logical Operators => &&, ||, !
 - Bitwise Operators => &, |, ~, ^, <<, >>, >>>
-- Ternary Operators
+- Ternary Operators => ?:
 - Type Operators =>
 - typeof - Returns the type of a variable,
 - instanceof - The instanceof operator in JavaScript is used to check the type of an object at run time. It returns a boolean value if true then it indicates that the object is an instance of a particular class and if false then it is not
