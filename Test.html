@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h4>TO-DO List</h4>
+      <form id="myForm" onsubmit="return showData(event)">
+        <input type="text" name="todo" id="todo" />
+        <button id="submit">Submit</button>
+      </form>
+      <div id="todo-list"></div>
+    </div>
+  </body>
+  <script>
+    let list = [];
+
+    function showData(event) {
+      event.preventDefault();
+      let data = document.forms["myForm"]["todo"].value;
+      if (data.trim() === "") {
+        alert("Please enter a valid to-do item.");
+        return;
+      }
+      list.push(data);
+      renderList();
+      document.forms["myForm"]["todo"].value = "";
+    }
+
+    function renderList() {
+      const todoList = document.getElementById("todo-list");
+      todoList.innerHTML = list
+        .map(
+          (item, index) =>
+            `<div>
+              <p>${item}</p>
+              <button onclick="editItem(${index})">Edit</button>
+              <button onclick="deleteItem(${index})">Delete</button>
+            </div>`
+        )
+        .join("");
+    }
+
+    function editItem(index) {
+      const newValue = prompt("Edit your to-do item:", list[index]);
+      if (newValue !== null && newValue.trim() !== "") {
+        list[index] = newValue;
+        renderList();
+      }
+    }
+
+    function deleteItem(index) {
+      list.splice(index, 1);
+      renderList();
+    }
+  </script>
+</html>
