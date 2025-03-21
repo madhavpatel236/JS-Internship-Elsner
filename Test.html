@@ -5,54 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
   <body>
     <div id="containor">
-      <input id="name" type="text" />
-      <button id="submit_btn">Submit</button>
+      <h3 id="content"></h3>
     </div>
-    <div id="res"></div>
   </body>
-
   <script>
-    let containor = document.getElementById("containor");
-    let result = document.getElementById("res");
-    let arr = [];
-
-    document
-      .getElementById("submit_btn")
-      .addEventListener("click", function () {
-        let name = document.getElementById("name").value;
-
-        if (name) {
-          arr.unshift(name);
-          showTable();
-        }
-      });
-
-    function showTable() {
-      result.innerText = "";
-
-      let table = document.createElement("table");
-      table.innerHTML = `
-        <tr>
-          <th> Index </th>
-          <th> Name </th>
-          </tr>
-          `;
-
-      arr.forEach((eachValue, index) => {
-        let row = document.createElement("tr");
-        row.id = `row`;
-        row.innerHTML = `
-        <td> ${index + 1} </td>
-        <td> ${eachValue} </td>
-        `;
-
-        table.appendChild(row);
-      });
-      result.appendChild(table);
-    }
-
   </script>
 </html>
